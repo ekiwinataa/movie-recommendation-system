@@ -16,12 +16,12 @@ if 'model' not in st.session_state or 'data' not in st.session_state or 'matrix'
     st.session_state['data'] = df
 
 
-st.title(':movie_camera: Recommendation System')
+st.title(':movie_camera: Your Reliable Movie Recommendation App')
 search, image = st.columns([3,1], gap='large')
 
 with search:
     movies = st.selectbox(
-        'Pick movies you\'ve watched',
+        'Pick any movies you\'ve watched',
         st.session_state['data']['Series_Title'].tolist()
     )
 with image:
@@ -48,4 +48,4 @@ if st.button('Recommend Me Movies'):
     st.write('Dataset Detail')
     st.dataframe(st.session_state['data'].loc[rec_idx][['Series_Title', 'Genre', 'Director','text-prep-stem']])
 else:
-    st.write('Click to get recommendation')
+    st.write('Click for a surprise')
